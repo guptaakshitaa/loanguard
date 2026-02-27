@@ -1,0 +1,7 @@
+{
+  "model_type": "LightGBM",
+  "version": "20260227_202300",
+  "run_id": "01682d07108c45a0bf13b44bd112f4dd",
+  "auc_roc": 0.8156441676192376,
+  "training_timestamp": "20260227_202300"
+}

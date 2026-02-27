@@ -1,0 +1,46 @@
+.PHONY: help install generate-data train test lint format clean
+
+# ── Config ─────────────────────────────────────────────────────────────────────
+PYTHON   ?= python
+PIP      ?= pip
+N_TRIALS ?= 50
+
+help:  ## Show this help
+	@grep -E '^[a-zA-Z_-]+:.*##' Makefile | awk 'BEGIN{FS=":.*## "}{printf "  \033[36m%-20s\033[0m %s\n",$$1,$$2}'
+
+install:  ## Install all dependencies
+	$(PIP) install -r requirements.txt
+
+install-dev:  ## Install dev + prod dependencies
+	poetry install --with dev
+
+generate-data:  ## Generate 50k synthetic credit dataset
+	$(PYTHON) -m loanguard.data.generator
+
+train:  ## Run full training pipeline (Optuna + MLflow)
+	cd loanguard && $(PYTHON) ml/train.py --n-trials $(N_TRIALS)
+
+train-fast:  ## Quick training run (5 trials, no challenger)
+	cd loanguard && $(PYTHON) ml/train.py --n-trials 5 --no-challenger
+
+mlflow-ui:  ## Launch MLflow tracking UI
+	mlflow ui --backend-store-uri loanguard/mlruns --port 5000
+
+test:  ## Run pytest test suite
+	$(PYTHON) -m pytest loanguard/tests/ -v --cov=loanguard --cov-report=term-missing
+
+lint:  ## Run ruff linter
+	ruff check loanguard/
+
+format:  ## Auto-format with black
+	black loanguard/
+
+typecheck:  ## Run mypy type checking
+	mypy loanguard/ --ignore-missing-imports
+
+clean:  ## Remove generated data, models, mlruns
+	rm -rf loanguard/data/raw/*.parquet loanguard/data/raw/*.csv
+	rm -rf loanguard/models/*.pkl loanguard/models/*.json
+	rm -rf loanguard/mlruns
+	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+	find . -name "*.pyc" -delete

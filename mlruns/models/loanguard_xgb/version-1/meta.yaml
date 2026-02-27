@@ -1,0 +1,16 @@
+creation_timestamp: 1772204506397
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1772204506397
+model_id: m-893193ef8d16413c859de8eb4f732395
+name: loanguard_xgb
+run_id: 01682d07108c45a0bf13b44bd112f4dd
+run_link: null
+source: models:/m-893193ef8d16413c859de8eb4f732395
+status: READY
+status_message: null
+storage_location: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/models/m-893193ef8d16413c859de8eb4f732395/artifacts
+user_id: null
+version: 1
+workspace: default

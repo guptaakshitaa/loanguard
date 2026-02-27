@@ -1,0 +1,14 @@
+artifact_uri: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/4dc8fd347dae472d980a82eccae82f64/artifacts
+end_time: 1772203891317
+entry_point_name: ''
+experiment_id: '811273412657780744'
+lifecycle_stage: active
+run_id: 4dc8fd347dae472d980a82eccae82f64
+run_name: loanguard_train_20260227_202130
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772203891117
+status: 4
+tags: []
+user_id: akshitagupta

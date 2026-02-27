@@ -1,0 +1,10 @@
+artifact_location: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/models/m-893193ef8d16413c859de8eb4f732395/artifacts
+creation_timestamp: 1772204502479
+experiment_id: '811273412657780744'
+last_updated_timestamp: 1772204506382
+model_id: m-893193ef8d16413c859de8eb4f732395
+model_type: null
+name: champion_model
+source_run_id: 01682d07108c45a0bf13b44bd112f4dd
+status: 2
+status_message: null

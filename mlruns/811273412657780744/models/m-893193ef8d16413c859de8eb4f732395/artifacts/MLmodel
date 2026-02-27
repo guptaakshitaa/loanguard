@@ -1,0 +1,23 @@
+artifact_path: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/models/m-893193ef8d16413c859de8eb4f732395/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.10.0
+model_id: m-893193ef8d16413c859de8eb4f732395
+model_size_bytes: 8904732
+model_uuid: m-893193ef8d16413c859de8eb4f732395
+prompts: null
+run_id: 01682d07108c45a0bf13b44bd112f4dd
+utc_time_created: '2026-02-27 15:01:42.548171'

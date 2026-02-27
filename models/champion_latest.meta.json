@@ -1,0 +1,37 @@
+{
+  "model_type": "XGBoost",
+  "version": "20260227_202300",
+  "run_id": "01682d07108c45a0bf13b44bd112f4dd",
+  "n_features": 12,
+  "selected_features": [
+    "rate_x_dti",
+    "debt_to_income",
+    "grade",
+    "credit_utilization_ratio",
+    "interest_rate",
+    "num_derog_records",
+    "derog_rate",
+    "num_credit_inquiries",
+    "months_since_last_delinq",
+    "annual_income",
+    "employment_length_years",
+    "loan_to_income"
+  ],
+  "best_params": {
+    "n_estimators": 575,
+    "max_depth": 6,
+    "learning_rate": 0.16684334304456416,
+    "subsample": 0.6584022127605162,
+    "colsample_bytree": 0.9787572742945878,
+    "min_child_weight": 10,
+    "gamma": 2.8390834412928205,
+    "reg_alpha": 0.001827601103046679,
+    "reg_lambda": 0.022702680971842793
+  },
+  "auc_roc": 0.7803918249071817,
+  "ks_statistic": 0.42495315888270757,
+  "gini": 0.5607836498143635,
+  "optimal_threshold": 0.15499999999999997,
+  "training_timestamp": "20260227_202300",
+  "calibration_method": "sigmoid"
+}
