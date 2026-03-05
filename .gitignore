@@ -1,0 +1,9 @@
+models/*.pkl
+data/raw/*.parquet
+data/raw/*.csv
+db/predictions.db
+mlruns/
+__pycache__/
+*.pyc
+.DS_Store
+*.egg-info/
