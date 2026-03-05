@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+
+  # ── LoanGuard API ──────────────────────────────────────────────────────────
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: loanguard_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../models:/app/models          # persist trained model artifacts
+      - ../db:/app/db                  # persist prediction audit log
+      - ../data:/app/data              # persist dataset
+      - ../mlruns:/app/mlruns          # MLflow run data
+    environment:
+      - LOANGUARD_ENVIRONMENT=production
+      - LOANGUARD_MODEL_DIR=models
+      - LOANGUARD_MLFLOW_TRACKING_URI=http://mlflow:5000
+      - LOANGUARD_LOG_LEVEL=INFO
+      - PYTHONPATH=/app
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ── MLflow Tracking Server ─────────────────────────────────────────────────
+  mlflow:
+    image: python:3.11-slim
+    container_name: loanguard_mlflow
+    command: >
+      sh -c "pip install mlflow --quiet &&
+             mlflow server
+               --host 0.0.0.0
+               --port 5000
+               --backend-store-uri sqlite:///mlflow.db
+               --default-artifact-root /mlflow/artifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    restart: unless-stopped
+
+volumes:
+  mlflow_data:

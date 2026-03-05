@@ -1,0 +1,16 @@
+creation_timestamp: 1772725686452
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1772725686452
+model_id: m-0b09872124e14aefa06ef2151adf1cc6
+name: loanguard_lgbm
+run_id: eb00064caea54ea18f04b2065c3df552
+run_link: null
+source: models:/m-0b09872124e14aefa06ef2151adf1cc6
+status: READY
+status_message: null
+storage_location: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/models/m-0b09872124e14aefa06ef2151adf1cc6/artifacts
+user_id: null
+version: 1
+workspace: default

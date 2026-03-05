@@ -1,0 +1,10 @@
+artifact_location: /Users/akshitagupta/Desktop/loanguard/mlruns/811273412657780744/models/m-0b09872124e14aefa06ef2151adf1cc6/artifacts
+creation_timestamp: 1772725684748
+experiment_id: '811273412657780744'
+last_updated_timestamp: 1772725686446
+model_id: m-0b09872124e14aefa06ef2151adf1cc6
+model_type: null
+name: challenger_model
+source_run_id: eb00064caea54ea18f04b2065c3df552
+status: 2
+status_message: null

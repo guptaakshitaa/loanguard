@@ -21,6 +21,19 @@ class Settings(BaseSettings):
     Every value has a sensible default; override via env vars prefixed
     with ``LOANGUARD_`` (e.g. ``LOANGUARD_MLFLOW_URI=http://…``).
     """
+        # ── Application ───────────────────────────────────────────────
+    app_name: str = Field(default="LoanGuard AI")
+    app_version: str = Field(default="1.0.0")
+    environment: str = Field(default="development")
+    debug: bool = Field(default=False)
+
+    # ── Server ────────────────────────────────────────────────────
+    host: str = Field(default="0.0.0.0")
+    port: int = Field(default=8000)
+
+    # ── Model ─────────────────────────────────────────────────────
+    champion_model_name: str = Field(default="loanguard_xgb")
+    challenger_model_name: str = Field(default="loanguard_lgbm")
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     base_dir: Path = Field(default=Path(__file__).resolve().parents[1])
